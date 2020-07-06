@@ -1,0 +1,96 @@
+cameras:
+  camera1:
+    type: perspective
+
+lights:
+  light1:
+    type: directional
+    direction: [0, 1, -.5]
+    diffuse: .3
+    ambient: 1
+
+sources:
+  indoorequal:
+    type: MVT
+    url: https://tiles.indoorequal.org/tiles/{z}/{x}/{y}.pbf
+    url_params:
+      key: ovQPkGYxevfm0PFknWbLlp
+    tile_size: 512
+    max_zoom: 17
+
+layers:
+  area_name:
+    data:
+      source: indoorequal
+    filter:
+      level: "0"
+    draw:
+      text:
+        text_source: name
+        font:
+          family: Arial
+          fill: gray
+          size: 18px
+
+  area:
+    data:
+      source: indoorequal
+    area:
+      filter:
+        class: [area, platform, corridor, room]
+        level: "0"
+      draw:
+        polygons:
+          order: 7
+          color: '#ffffff'
+        lines:
+          order: 7
+          color: gray
+          width: 1px
+
+      room:
+        filter:
+          class: room
+        draw:
+          lines:
+            order: 8
+            color: gray
+            width: 2px
+
+  wall:
+    data:
+      source: indoorequal
+      layer: area
+    filter:
+      class: wall
+      level: "0"
+    draw:
+      lines:
+        order: 10
+        color: gray
+        width: 2px
+
+  column:
+    data:
+      source: indoorequal
+      layer: area
+    filter:
+      class: column
+      level: "0"
+    draw:
+      polygons:
+        order: 10
+        color: gray
+
+  poi:
+    data:
+      source: indoorequal
+    filter:
+      level: "0"
+    draw:
+      text:
+        text_source: name
+        font:
+          family: Arial
+          fill: gray
+          size: 14px
