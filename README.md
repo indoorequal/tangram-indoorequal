@@ -11,6 +11,8 @@ Missing:
 
 - transportation
 
+[**See the demo**](https://indoorequal.github.io/tangram-indoorequal).
+
 ## License
 
 BSD
