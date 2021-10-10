@@ -14,7 +14,7 @@ sources:
     type: MVT
     url: https://tiles.indoorequal.org/tiles/{z}/{x}/{y}.pbf
     url_params:
-      key: ovQPkGYxevfm0PFknWbLlp
+      key: iek_VpPLmIcjE8vIQ7dVhFr3zw3lqTHj
     tile_size: 512
     max_zoom: 17
 
